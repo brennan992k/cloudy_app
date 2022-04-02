@@ -1,6 +1,6 @@
 ### Design
 
-<img src="./design.png" width="512">
+<img src="./design.png" width="800">
 
 ### Follow
 
