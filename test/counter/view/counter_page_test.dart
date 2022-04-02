@@ -6,7 +6,8 @@
 // https://opensource.org/licenses/MIT.
 
 import 'package:bloc_test/bloc_test.dart';
-import 'package:cloudy_app/counter/counter.dart';
+import 'package:cloudy_app/logic/counter/counter_cubit.dart';
+import 'package:cloudy_app/presentations/pages/counter_page.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_test/flutter_test.dart';

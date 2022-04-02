@@ -5,7 +5,7 @@
 // license that can be found in the LICENSE file or at
 // https://opensource.org/licenses/MIT.
 
-import 'package:cloudy_app/app/app.dart';
+import 'package:cloudy_app/app.dart';
 import 'package:cloudy_app/bootstrap.dart';
 
 void main() {
