@@ -37,6 +37,10 @@ class AppTheme {
   ///Border Radius
   static Radius borderRadius = const Radius.circular(20);
 
+  /// Spacing between component
+  static double spacing1 = 20;
+  static double spacing2 = 10;
+
   /// define light theme
   static ThemeData get light => ThemeData(
         fontFamily: fontFamily,

@@ -29,7 +29,7 @@ class AppRoute {
       case settingsRoute:
         return _buildRoute(settings, const SettingsScreen());
       case searchRoute:
-        return _buildRoute(settings, const SearchScreen());
+        return _buildRoute(settings, SearchScreen());
       default:
         return _buildRoute(settings, const HomeScreen());
     }
