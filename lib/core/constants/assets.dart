@@ -14,6 +14,7 @@ class Assets {
   static const String sun = '${prefix}sun.svg';
   static const String wind = '${prefix}wind.svg';
   static const String location = '${prefix}location.svg';
+  static const String addlocation = '${prefix}addlocation.svg';
   static const String locationmenu = '${prefix}locationmenu.svg';
   static const String sunmark = '${prefix}sunmark.svg';
   static const String back = '${prefix}back.svg';

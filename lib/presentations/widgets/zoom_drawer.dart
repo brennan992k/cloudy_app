@@ -273,35 +273,41 @@ class _ZoomDrawerState extends State<ZoomDrawer>
   ///
   /// * [slide] is the sliding amount of the drawer
   ///
-  Widget _zoomAndSlideContent(
-    Widget? container, {
-    double? angle,
-    double? scale,
-    double slide = 0,
-    bool isMain = false,
-  }) {
+  Widget _zoomAndSlideContent(Widget? container,
+      {double? angle,
+      double? scale,
+      double slide = 0,
+      bool isMain = false,
+      Alignment alignment = Alignment.center,
+      double top = 0.0,
+      double onScalePercent = 0.2}) {
     double slidePercent;
     double scalePercent;
+    double y;
 
     /// determine current slide percent based on the MenuStatus
     switch (_state) {
       case DrawerState.closed:
         slidePercent = 0.0;
         scalePercent = 0.0;
+        y = 0;
         break;
       case DrawerState.open:
         slidePercent = 1.0;
         scalePercent = 1.0;
+        y = top;
         break;
       case DrawerState.opening:
         slidePercent =
             (widget.openCurve ?? _slideOutCurve).transform(_percentOpen);
         scalePercent = _scaleDownCurve.transform(_percentOpen);
+        y = (widget.openCurve ?? _slideOutCurve).transform(_percentOpen);
         break;
       case DrawerState.closing:
         slidePercent =
             (widget.closeCurve ?? _slideInCurve).transform(_percentOpen);
         scalePercent = _scaleUpCurve.transform(_percentOpen);
+        y =(widget.openCurve ?? _slideOutCurve).transform(_percentOpen);
         break;
     }
 
@@ -309,7 +315,7 @@ class _ZoomDrawerState extends State<ZoomDrawer>
     final slideAmount = (widget.slideWidth - slide) * slidePercent * _rtlSlide;
 
     /// calculated scale amount based on the provided scale and animation value
-    final contentScale = (scale ?? 1.0) - (0.2 * scalePercent);
+    final contentScale = (scale ?? 1.0) - (onScalePercent * scalePercent);
 
     /// calculated radius based on the provided radius and animation value
     final cornerRadius = widget.borderRadius * _percentOpen;
@@ -319,10 +325,10 @@ class _ZoomDrawerState extends State<ZoomDrawer>
         (((angle ?? widget.angle) * pi * _rtlSlide) / 180) * _percentOpen;
 
     return Transform(
-      transform: Matrix4.translationValues(slideAmount, 0.0, 0.0)
+      transform: Matrix4.translationValues(slideAmount, y, 0.0)
         ..rotateZ(rotationAngle)
         ..scale(contentScale, contentScale),
-      alignment: Alignment.centerLeft,
+      alignment: alignment,
       child: isMain
           ? container
           : ClipRRect(
@@ -443,6 +449,8 @@ class _ZoomDrawerState extends State<ZoomDrawer>
         return renderStyle7();
       case DrawerStyle.style8:
         return renderStyle8();
+      case DrawerStyle.style9:
+        return renderStyle9();
       default:
         return renderDefault();
     }
@@ -717,6 +725,19 @@ class _ZoomDrawerState extends State<ZoomDrawer>
       },
     );
   }
+
+  Widget renderStyle9() {
+    return Stack(
+      children: [
+        widget.menuScreen,
+        AnimatedBuilder(
+          animation: _animationController!,
+          builder: (_, __) => _zoomAndSlideContent(mainScreenContent,
+              isMain: true, onScalePercent: 0, top: 40),
+        ),
+      ],
+    );
+  }
 }
 
 /// Drawer State enum
@@ -732,6 +753,7 @@ enum DrawerStyle {
   style6,
   style7,
   style8,
+  style9,
 }
 
 /// Build custom style with (context, percentOpen, slideWidth, menuScreen, mainScreen) {}

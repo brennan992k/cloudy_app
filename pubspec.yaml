@@ -47,6 +47,7 @@ flutter:
     - assets/images/rain.svg
     - assets/images/sun.svg
     - assets/images/location.svg
+    - assets/images/addlocation.svg
     - assets/images/jammenu.svg
     - assets/images/search.svg
     - assets/images/drawermenu.svg
