@@ -58,6 +58,7 @@ flutter:
     - assets/images/share.svg
     - assets/images/promo.svg
     - assets/images/arrowleft.svg
+    - assets/images/star.svg
   # fonts:
   #   - family: Schyler
   #     fonts:

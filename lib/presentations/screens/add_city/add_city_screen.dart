@@ -39,8 +39,7 @@ class AddCityScreen extends StatelessWidget {
               SizedBox(
                 height: AppTheme.spacing1,
               ),
-              SizedBox(
-                height: 500,
+              Expanded(
                 child: ListView(
                   children: const [
                     CityItem(),

@@ -45,11 +45,11 @@ class SearchScreen extends StatelessWidget {
                       placeholder: 'Enter cities',
                     ),
                   ),
-                  ViewImage(
-                    image: const AssetImage(Assets.mapsweather),
-                    width: MediaQuery.of(context).size.width,
-                    height: MediaQuery.of(context).size.height - 180,
-                  ),
+                  const Expanded(
+                    child: ViewImage(
+                      image: AssetImage(Assets.mapsweather),
+                    ),
+                  )
                 ],
               ),
             ),

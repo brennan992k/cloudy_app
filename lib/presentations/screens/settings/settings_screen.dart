@@ -2,6 +2,7 @@ import 'package:cloudy_app/core/constants/assets.dart';
 import 'package:cloudy_app/core/theme/app_theme.dart';
 import 'package:cloudy_app/presentations/widgets/custom_appbar.dart';
 import 'package:cloudy_app/presentations/widgets/round_card.dart';
+import 'package:cloudy_app/presentations/widgets/swticher.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
@@ -38,7 +39,12 @@ class SettingsScreen extends StatelessWidget {
                                 Theme.of(context).textTheme.bodyLarge)
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
-                      trailing: Switch(value: true, onChanged: (value) {}),
+                      trailing: Switcher(
+                        value: true,
+                        onToggle: (value) {},
+                        activeText: 'C',
+                        inactiveText: 'F',
+                      ),
                     ),
                     ListTile(
                       title: Text(
@@ -47,7 +53,7 @@ class SettingsScreen extends StatelessWidget {
                                 Theme.of(context).textTheme.bodyLarge)
                             .copyWith(fontWeight: FontWeight.bold),
                       ),
-                      trailing: Switch(value: true, onChanged: (value) {}),
+                      trailing: Switcher(value: true, onToggle: (value) {}),
                     )
                   ],
                 ),

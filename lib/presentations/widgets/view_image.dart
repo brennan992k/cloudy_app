@@ -5,14 +5,14 @@ class ViewImage extends StatelessWidget {
     Key? key,
     required this.image,
     this.borderRadius,
-    this.width = 100,
-    this.height = 100,
+    this.width,
+    this.height,
     this.boxshadow,
   }) : super(key: key);
 
   final ImageProvider<Object> image;
-  final double width;
-  final double height;
+  final double? width;
+  final double? height;
   final BorderRadius? borderRadius;
   final List<BoxShadow>? boxshadow;
 

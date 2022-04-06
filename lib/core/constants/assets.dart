@@ -22,6 +22,7 @@ class Assets {
   static const String share = '${prefix}share.svg';
   static const String promo = '${prefix}promo.svg';
   static const String arrowleft = '${prefix}arrowleft.svg';
+  static const String star = '${prefix}star.svg';
 
   /// WEATHER
   static const String w1 = '${prefix}image1.png';
