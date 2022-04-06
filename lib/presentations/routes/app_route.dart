@@ -16,7 +16,7 @@ class AppRoute {
   static const String searchRoute = '/search';
   static const String addLocationRoute = '/addlocation';
 
-  static String get initialRoute => homeRoute;
+  static String get initialRoute => splashRoute;
 
   static Route onGenerateRoute(RouteSettings settings) {
     switch (settings.name) {

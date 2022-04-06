@@ -83,8 +83,9 @@ class SunConditionCard extends StatelessWidget {
                             top: 3.5,
                             left: 4.7,
                             child: SvgPicture.asset(
-                              Assets.drawermenu,
+                              Assets.sun,
                               semanticsLabel: 'vector',
+                              color: Colors.red,
                             ),
                           ),
                         ],
